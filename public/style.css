@@ -1,0 +1,387 @@
+:root {
+  --primary-color: #ff6347;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
+html[data-theme='light'] {
+  --bg-color: #f5f5f5;
+  --container-bg: #fff;
+  --text-color: #333;
+  --card-bg: #f8f8f8;
+  --border-color: #eee;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --input-bg: #fff;
+  --input-border: #ddd;
+}
+
+html[data-theme='dark'] {
+  --bg-color: #292c35;
+  --container-bg: #1e2027;
+  --text-color: #f4f4f4;
+  --card-bg: #32343d;
+  --border-color: #3e4050;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --input-bg: #32343d;
+  --input-border: #3e4050;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--container-bg);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+h2 {
+  margin: 1rem 0;
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.time {
+  font-size: 4rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.controls button {
+  background-color: var(--primary-color);
+  color: white;
+  font-size: 1.2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls button:hover {
+  background-color: #e55a3c;
+  transform: scale(1.05);
+}
+
+.mode-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.mode-buttons button {
+  flex: 1;
+  padding: 0.7rem;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  margin: 0 0.3rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mode-buttons button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.settings {
+  margin: 2rem 0;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.setting input {
+  width: 60px;
+  padding: 0.5rem;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-radius: 5px;
+  text-align: center;
+}
+
+#save-settings {
+  background-color: var(--success-color);
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+#save-settings:hover {
+  background-color: #218838;
+}
+
+.tasks {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}
+
+.add-task {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+#task-input {
+  flex: 1;
+  padding: 0.7rem;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-radius: 5px 0 0 5px;
+}
+
+#add-task-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 0 5px 5px 0;
+  padding: 0 1rem;
+}
+
+#task-list {
+  list-style: none;
+}
+
+#task-list li {
+  background-color: var(--card-bg);
+  padding: 0.7rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.task-complete {
+  text-decoration: line-through;
+  color: #777;
+}
+
+.task-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.task-actions .complete-btn {
+  color: var(--success-color);
+}
+
+.task-actions .delete-btn {
+  color: var(--danger-color);
+}
+
+/* Переключатель темы */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.slider .fa-sun {
+  color: #f39c12;
+  margin-left: 5px;
+}
+
+.slider .fa-moon {
+  color: #f4f4f4;
+  margin-right: 5px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  z-index: 1;
+}
+
+input:checked + .slider {
+  background-color: #2c3e50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(30px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .mode-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mode-buttons button {
+    margin: 0.2rem 0;
+  }
+}
+
+.notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff; /* Явно задаем белый фон для светлой темы */
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 10000; /* Увеличиваем z-index для надежности */
+  min-width: 300px;
+  display: block; /* Явно задаем display */
+  opacity: 1; /* Явно задаем opacity */
+}
+
+[data-theme="dark"] .notification {
+  background-color: #333333; /* Явно задаем темный фон */
+  color: #ffffff; /* Для текста внутри уведомления */
+}
+
+.notification-content {
+  text-align: center;
+}
+
+.notification-content p {
+  margin: 0 0 15px;
+  font-size: 1.2em;
+  color: var(--text);
+}
+
+[data-theme="dark"] .notification-content p {
+  color: #ffffff; /* Для текста в темной теме */
+}
+
+/* Стили кнопки закрытия */
+.close-notification {
+  padding: 10px 20px;
+  background-color: var(--primary, #007bff);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.close-notification:hover {
+  background-color: var(--primary-dark, #0056b3);
+}
+
+.hidden {
+  display: none !important;
+}
